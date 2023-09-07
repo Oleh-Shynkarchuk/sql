@@ -44,7 +44,7 @@ public class Student {
     @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
     private List<Phone> phones;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
     @Fetch(FetchMode.SUBSELECT)
     private List<ExamResult> exams;
 

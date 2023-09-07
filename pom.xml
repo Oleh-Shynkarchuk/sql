@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>SQL-Data-Generator</artifactId>
+    <groupId>org.fed333.sql.data.generator.app</groupId>
+    <artifactId>SQL</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <powermock.version>1.6.4</powermock.version>
     </properties>
 
@@ -30,8 +30,9 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.33</version>
         </dependency>
         <dependency>
             <groupId>org.flywaydb</groupId>
@@ -71,9 +72,12 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <configuration>
-                    <url>jdbc:postgresql://localhost:5432/advanced_sql_main_task_db</url>
-                    <user>postgres</user>
-                    <password>Way_0804</password>
+                    <url>jdbc:mysql://localhost:3306/test_sql</url>
+                    <user>root</user>
+                    <password>QWERTY00qwerty00</password>
+                    <schemas>
+                        <schema>test_sql</schema>
+                    </schemas>
                 </configuration>
             </plugin>
         </plugins>

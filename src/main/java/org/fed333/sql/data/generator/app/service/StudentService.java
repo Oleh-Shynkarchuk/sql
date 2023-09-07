@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.FetchType;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -57,6 +58,17 @@ public class StudentService {
         phoneService.deleteAll();
         examService.deleteAll();
         studentRepo.deleteAll();
+    }
+
+    public List<Student> findStudents() {
+       return studentRepo.findBySurnameRegex("^([A-Za-zА-Яа-я]\\.?|)$");
+    }
+    public List<String> findSkills() {
+        return studentRepo.findSkills();
+    }
+
+    public List<Map<String, Integer>> findSubjectsAndNumStudentsPassed(Short i) {
+        return studentRepo.findSubjectsAndNumStudentsPassed(i);
     }
 }
 

@@ -1,5 +1,6 @@
 package org.fed333.sql.data.generator.app.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Phone {
     private Integer id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "student_id")
     private Student student;
 
